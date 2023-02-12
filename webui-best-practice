@@ -1,0 +1,14 @@
+steps:
+1) install python 3.10.6
+2) install git 
+3) download model ckpt from HF or other sources, then put ckpt files under models->stable-diffusion. 
+   you could download multiple models ckpt, since the latest UI can handle switch between models. 
+   note: you may see models have either .ckpt or .safetensors suffix. .safetensors ones are faster and can't contain malicious code, hence safer than .ckpt.
+4) edit "webui-user.bat" file as below:
+    set PYTHON="C:\Users\AppData\Local\Programs\Python\Python310\python.exe" <- the path of your python.exe
+    set COMMANDLINE_ARGS= --xformers  <- this could activate xformers download.
+    git pull <- help update stable diffusion webui whenever you launch the .bat file
+5) downgrade fastapi. for windows user, enter stable-diffusion-webui folder, and type "cmd". 
+   In the command prompt, type ".\venv\Scripts\python.exe -m pip install --upgrade fastapi==0.90.1", this will solve the middleware error.
+6) launch webui-user.bat file
+
